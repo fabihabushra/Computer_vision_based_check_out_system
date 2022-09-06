@@ -1,0 +1,15 @@
+Order
+Receipt #6962120
+
+Shop Name: Sigma Supershop
+Date Time: 2022-02-04 00:04:43
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+2     x Pears Soap with Natural Oils    Tk.240
+3     G x Local Potato                  Tk.90
+0     G x Local Garlic                  Tk.25
+--------------------------------------------------
+Total:                                  Tk.355
+--------------------------------------------------
+Thank You For Shopping
