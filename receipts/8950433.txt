@@ -1,0 +1,18 @@
+Order
+Receipt #8950433
+
+Shop Name: Sigma Supershop
+Date Time: 2022-02-04 03:19:16
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1      Dettol Original Soap             Tk.42
+1      Neem Soap Olive and Aloe Vera    Tk.42
+1      Pears Soap with Lemon Flower E   Tk.135
+1      Pears Soap with Natural Oils     Tk.120
+1.5KG  Local Potato                     Tk.45
+0.25KG  Local Garlic                    Tk.10
+--------------------------------------------------
+Total:                                  Tk.394
+--------------------------------------------------
+Thank You For Shopping
