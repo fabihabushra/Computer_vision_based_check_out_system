@@ -1,0 +1,9 @@
+Batch Size = 32
+Epoch = 100
+Workers = 2
+
+Remarks: 
+-ACI Salt detected everywhere
+-No significant improvement over previous
+-This one can't even detect multiple objects efficiently
+

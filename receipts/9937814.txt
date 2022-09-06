@@ -1,0 +1,21 @@
+Order
+Receipt #9937814
+
+Shop Name: Sigma Supershop
+Date Time: 2021-07-10 18:09:36
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1     ACI Pure Salt 1kg                 Tk.38
+2     Dettol Original Soap              Tk.76
+1     Teer Sugar 1kg                    Tk.38
+1     Rupchanda Cooking Oil 1L          Tk.38
+1     Pran Hot Sauce                    Tk.38
+1     Sepnil HandSanitizer 40ml         Tk.38
+1     Vasline Original                  Tk.38
+1     Coca-cola 250ml bottle            Tk.38
+1     Lux Soft Glow                     Tk.38
+--------------------------------------------------
+Total:                                  Tk.380
+--------------------------------------------------
+Thank You For Shopping

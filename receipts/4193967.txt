@@ -1,0 +1,22 @@
+Order
+Receipt #4193967
+
+Shop Name: Sigma Supershop
+Date Time: 2021-10-13 13:06:49
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1     ACI Pure Salt 1kg                 Tk.32
+1     Energy Biscuit                    Tk.38
+4     Dettol Original Soap              Tk.168
+1     Teer Sugar 1kg                    Tk.78
+1     Rupchanda Cooking Oil 1L          Tk.144
+1     Frutika Grape 250ml               Tk.15
+1     Sepnil HandSanitizer 40ml         Tk.80
+1     Snickers                          Tk.40
+1     Vasline Original                  Tk.250
+1     Lux Soft Glow                     Tk.38
+--------------------------------------------------
+Total:                                  Tk.883
+--------------------------------------------------
+Thank You For Shopping

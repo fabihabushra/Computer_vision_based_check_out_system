@@ -1,0 +1,21 @@
+Order
+Receipt #312584
+
+Shop Name: Sigma Supershop
+Date Time: 2021-07-01 19:16:24
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1     Energy Biscuit                    Tk.42
+3     Dettol Original Soap              Tk.126
+1     Teer Sugar 1kg                    Tk.42
+1     Rupchanda Cooking Oil 1L          Tk.42
+1     Cocola Chicken Masala Noodles     Tk.42
+1     Frutika Grape 250ml               Tk.42
+1     Sprite 250ml Bottle               Tk.42
+1     Coca-cola 250ml bottle            Tk.42
+2     Lux Soft Glow                     Tk.84
+--------------------------------------------------
+Total:                                  Tk.504
+--------------------------------------------------
+Thank You For Shopping

@@ -1,0 +1,14 @@
+Order
+Receipt #5113431
+
+Shop Name: Sigma Supershop
+Date Time: 2021-06-30 03:26:03
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1     ACI Pure Salt 1kg                 Tk.250
+2     Vasline Original                  Tk.500
+--------------------------------------------------
+Total:                                  Tk.750
+--------------------------------------------------
+Thank You For Shopping

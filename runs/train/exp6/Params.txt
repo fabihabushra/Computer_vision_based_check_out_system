@@ -1,0 +1,8 @@
+Batch Size = 2
+Epoch = 100
+
+Remarks: 
+-ACI Salt detected everywhere
+-Backface detection poor
+-Tightly packed detection not as good
+

@@ -1,0 +1,15 @@
+Order
+Receipt #3710357
+
+Shop Name: Sigma Supershop
+Date Time: 2021-06-30 13:01:55
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1     ACI Pure Salt 1kg                 Tk.80
+1     Sepnil HandSanitizer 40ml         Tk.80
+2     Vasline Original                  Tk.160
+--------------------------------------------------
+Total:                                  Tk.320
+--------------------------------------------------
+Thank You For Shopping

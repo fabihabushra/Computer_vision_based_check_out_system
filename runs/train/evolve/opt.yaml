@@ -1,0 +1,66 @@
+weights: yolov5m.pt
+cfg: ''
+data: .\data\supermarket_dataset.yaml
+hyp:
+  lr0: 0.01072
+  lrf: 0.216
+  momentum: 0.937
+  weight_decay: 0.00052
+  warmup_epochs: 2.98377
+  warmup_momentum: 0.77882
+  warmup_bias_lr: 0.103
+  box: 0.0494
+  cls: 0.10009400000000002
+  cls_pw: 1.03096
+  obj: 0.41240647500000005
+  obj_pw: 1.03242
+  iou_t: 0.2
+  anchor_t: 4.02
+  anchors: 2.86691
+  fl_gamma: 0.0
+  hsv_h: 0.01608
+  hsv_s: 0.6936
+  hsv_v: 0.414
+  degrees: 0.0
+  translate: 0.10193
+  scale: 0.5281
+  shear: 0.0
+  perspective: 0.0
+  flipud: 0.0
+  fliplr: 0.5
+  mosaic: 1.0
+  mixup: 0.0
+  label_smoothing: 0.0
+epochs: 10
+batch_size: 32
+img_size:
+- 416
+- 416
+rect: false
+resume: false
+nosave: true
+notest: true
+noautoanchor: false
+evolve: true
+bucket: ''
+cache_images: false
+image_weights: false
+device: ''
+multi_scale: false
+single_cls: false
+adam: false
+sync_bn: false
+workers: 1
+project: runs/train
+entity: null
+name: evolve
+exist_ok: false
+quad: false
+linear_lr: false
+label_smoothing: 0.0
+upload_dataset: false
+bbox_interval: -1
+save_period: -1
+artifact_alias: latest
+local_rank: -1
+save_dir: runs\train\evolve

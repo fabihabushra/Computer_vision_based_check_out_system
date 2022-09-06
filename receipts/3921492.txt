@@ -1,0 +1,17 @@
+Order
+Receipt #3921492
+
+Shop Name: Sigma Supershop
+Date Time: 2021-10-10 04:12:26
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+2     Dettol Original Soap              Tk.84
+1     Pran Hot Sauce                    Tk.90
+1     Frutika Grape 250ml               Tk.15
+1     Vasline Original                  Tk.250
+1     Lux Soft Glow                     Tk.38
+--------------------------------------------------
+Total:                                  Tk.477
+--------------------------------------------------
+Thank You For Shopping

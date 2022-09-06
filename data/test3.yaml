@@ -1,0 +1,9 @@
+train: ../../Finalized_Dataset/images/train/ 
+val:  ../../Finalized_Dataset/images/val/
+test: ../../Finalized_Dataset/images/test/
+
+# number of classes
+nc: 16
+
+# class names
+names: ["ACI Pure Salt 1kg","Parachute Coconut Oil 50ml", "Energy Biscuit", "Dettol Original Soap", "Mr. Twist", "Teer Sugar 1kg", "Rupchanda Cooking Oil 1L", "Pran Hot Sauce", "Cocola Chicken Masala Noodles", "Frutika Grape 250ml", "Sepnil HandSanitizer 40ml", "Snickers", "Sprite 250ml Bottle", "Vasline Original", "Coca-cola 250ml bottle", "Lux Soft Glow"]

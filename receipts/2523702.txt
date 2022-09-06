@@ -1,0 +1,17 @@
+Order
+Receipt #2523702
+
+Shop Name: Sigma Supershop
+Date Time: 2021-10-12 19:16:33
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+1     ACI Pure Salt 1kg                 Tk.32
+3     Dettol Original Soap              Tk.126
+1     Teer Sugar 1kg                    Tk.78
+1     Frutika Grape 250ml               Tk.15
+2     Sprite 250ml Bottle               Tk.30
+--------------------------------------------------
+Total:                                  Tk.281
+--------------------------------------------------
+Thank You For Shopping

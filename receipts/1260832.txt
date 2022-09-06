@@ -1,0 +1,16 @@
+Order
+Receipt #1260832
+
+Shop Name: Sigma Supershop
+Date Time: 2021-07-10 17:53:20
+--------------------------------------------------
+QTY   Description                       Price
+--------------------------------------------------
+2     ACI Pure Salt 1kg                 Tk.30
+2     Teer Sugar 1kg                    Tk.30
+2     Pran Hot Sauce                    Tk.30
+2     Coca-cola 250ml bottle            Tk.30
+--------------------------------------------------
+Total:                                  Tk.120
+--------------------------------------------------
+Thank You For Shopping
