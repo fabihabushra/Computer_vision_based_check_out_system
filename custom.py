@@ -1,5 +1,32 @@
-"""Run inference with a YOLOv5 model on images, videos, directories, streams
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@fabihabushra 
+Rusab
+/
+Supermall-Checkout-system-yolov5
+Public
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Supermall-Checkout-system-yolov5/custom.py /
+@Rusab
+Rusab fixes reciepts
+Latest commit cabffcc on Feb 4
+ History
+ 1 contributor
+898 lines (714 sloc)  40.4 KB
 
+"""Run inference with a YOLOv5 model on images, videos, directories, streams
 Usage:
     $ python path/to/detect.py --source path/to/img.jpg --weights yolov5s.pt --img 640
 """
@@ -25,6 +52,7 @@ import datetime
 from pathlib import Path
 
 import pandas as pd
+import arucodetector
 
 import cv2
 import torch
@@ -42,13 +70,9 @@ from utils.torch_utils import select_device, load_classifier, time_synchronized
 
 
 
-
-
-
-
 @torch.no_grad()
 def run(weights='runs/weights/best.pt',  # model.pt path(s)
-        source='1',  # file/dir/URL/glob, 0 for webcam
+        source='0',  # file/dir/URL/glob, 0 for webcam
         imgsz=416,  # inference size (pixels)
         conf_thres=0.25,  # confidence threshold
         iou_thres=0.5,  # NMS IOU threshold
@@ -57,7 +81,7 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
         view_img=False,  # show results
         save_txt=False,  # save results to *.txt
         save_conf=False,  # save confidences in --save-txt labels
-        save_crop=False,  # save cropped prediction boxes
+        save_crop=True,  # save cropped prediction boxes
         nosave=False,  # do not save images/videos
         classes=None,  # filter by class: --class 0, or --class 0 2 3
         agnostic_nms=False,  # class-agnostic NMS
@@ -78,6 +102,9 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
     # Load Prices
     prices = pd.read_csv("Invetory_pricing.csv")
     price_list = pd.Series.tolist(prices["Price"])
+    w_products = pd.read_csv("Weight_dependent_pricing.csv")
+    w_product_name = pd.Series.tolist(w_products["Product_name"])
+    w_product_price = pd.Series.tolist(w_products["Price"])
     
     # Initialize
     set_logging()
@@ -90,7 +117,7 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
     imgsz = check_img_size(imgsz, s=stride)  # check image size
     names = model.module.names if hasattr(model, 'module') else model.names  # get class names
     
-    net_det_count = [0]*len(names)
+    net_det_count = [0]*(len(names)+4)
     
     if half:
         model.half()  # to FP16
@@ -142,12 +169,12 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
 
             p = Path(p)  # to Path
                         
-            curr_det_count = [0]*len(names)
+            curr_det_count = [0]*(len(names)+4)
             
             #reset net det counter
             if ui.reset_flag > 0:
                 ui.reset_flag = 0
-                net_det_count = [0]*len(names)
+                net_det_count = [0]*(len(names)+4)
                 
             
             s += '%gx%g ' % img.shape[2:]  # print string
@@ -170,12 +197,13 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
                     tot_len = len(ls_item) + len(ls_price)
                     
                     listed += ls_item + "\n"
+
+                    if int(c) != 25:
+                        curr_det_count[int(c)] += int(n)
+                        item_price = int(n) * int(price_list[int(c)])
+                        price_listed.append(item_price)
                     
-                    curr_det_count[int(c)] += int(n)
-                    item_price = int(n) * int(price_list[int(c)])
-                    price_listed.append(item_price)
-                    
-                
+                w_prices = [0] * len(w_product_name)
 
                 # Write results
                 for *xyxy, conf, cls in reversed(det):
@@ -187,8 +215,48 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
                     if save_img or save_crop or view_img:  # Add bbox to image
                         c = int(cls)  # integer class
                         label = None if hide_labels else (names[c] if hide_conf else f'{names[c]} {conf:.2f}')
-                        plot_one_box(xyxy, im0, label=label, color=colors(c, True), line_thickness=line_thickness)
+                        if c != 25:
+                            plot_one_box(xyxy, im0, label=label, color=colors(c, True), line_thickness=line_thickness)
                         
+                        else:
+                            x1 = int(xyxy[0].item())
+                            y1 = int(xyxy[1].item())
+                            x2 = int(xyxy[2].item())
+                            y2 = int(xyxy[3].item())
+
+                            confidence_score = conf
+                            class_index = cls
+                            object_name = names[int(cls)]
+
+                            print('bounding box is ', x1, y1, x2, y2)
+                            print('class index is ', class_index)
+                            print('detected object name is ', object_name)
+                            original_img = im0
+                            cropped_img = im0[y1:y2, x1:x2]
+                            w_prod, cropped_img = arucodetector.detect_aruco(cropped_img)
+                            b_color = (0, 255, 0)
+                            temp_w_prod = w_prod
+                            try:
+                                w_prod, cropped_img = arucodetector.detect_qr(cropped_img)
+                                b_color = (255, 0, 0)
+                            except:
+                                w_prod = temp_w_prod
+                                print("qr not detected")
+                            # print(w_prod)
+                            #im0[y1:y2, x1:x2] = cropped_img
+                            #plot_one_box(xyxy, im0, label="Minicat Rice " + str(w_prod[1]/100) + "KG", color=colors(c, True), line_thickness=line_thickness)
+                            if len(w_prod) == 2 and w_prod[0] >= 26 and w_prod[0] <= 30:
+                                plot_one_box(xyxy, im0, label=w_product_name[(w_prod[0]-26)] + ' ' + str(float(w_prod[1]/100)) + "KG", color= b_color, line_thickness=line_thickness)
+                                curr_det_count[w_prod[0]-1] += float(w_prod[1]/100)
+                                w_prices[w_prod[0]-26] += float(w_prod[1]/100)*float(w_product_price[w_prod[0]-26])
+                                
+                            else:
+                                plot_one_box(xyxy, im0, label=label, color=(0, 0, 255), line_thickness=line_thickness)
+                for prices in w_prices:
+                    price_listed.append(prices)
+                            
+
+
                             
             # Print time (inference + NMS)
             print(f'{s}Done. ({t2 - t1:.3f}s)')
@@ -200,11 +268,16 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
                     ui.listPrice.clear()
                     ui.listWidget.clear()
                     
-                    for i in range(len(names)):
+                    for i in range(len(names)+4):
                         net_det_count[i] += curr_det_count[i]
                         if net_det_count[i] > 0:
-                            ui.update_item(f"{net_det_count[i]} x {names[i]}")   
-                            ui.update_price("\u09F3" + str(net_det_count[i]*int(price_list[i])))
+                            if i < 25:
+                                ui.update_item(f"{net_det_count[i]}   x {names[i]}")   
+                                ui.update_price("\u09F3" + str(net_det_count[i]*int(price_list[i])))
+                            else:
+                                ui.update_item(f"{net_det_count[i]}KG x {w_product_name[i-25]}")   
+                                ui.update_price("\u09F3" + str(round(net_det_count[i]*int(w_product_price[i-25]))))
+
                     print(f"net_count = {net_det_count}")
                     ui.color_locked()
                     ui.update_total()             
@@ -217,11 +290,16 @@ def run(weights='runs/weights/best.pt',  # model.pt path(s)
                 if ui.button_flag:
                     test_list = []
                     ui.clear_list()
-                    for i in range(len(names)):
+                    for i in range(len(names)+4):
                         if curr_det_count[i] > 0:
-                            ui.update_item(f"{curr_det_count[i]} x {names[i]}")  
-                            test_list.append(names[i])
-                            ui.update_price("\u09F3" + str(curr_det_count[i]*int(price_list[i])))
+                            if i < 25:
+                                ui.update_item(f"{curr_det_count[i]}   x {names[i]}")  
+                                test_list.append(names[i])
+                                ui.update_price("\u09F3" + str(curr_det_count[i]*int(price_list[i])))
+                            else:
+                                ui.update_item(f"{curr_det_count[i]}KG x {w_product_name[i-25]}")  
+                                test_list.append(w_product_name[i-25])
+                                ui.update_price("\u09F3" + str(round(curr_det_count[i]*int(w_product_price[i-25]))))
 
                     #ui.update_total()
                     print(test_list)
@@ -812,10 +890,12 @@ class Ui_MainWindow(object):
         for i in range(self.lock_pointer - 1):
            x = self.listWidget.item(i).text()
            y = self.listPrice.item(i).text()
-           qty = x[0]
-           desc = x[4:]
+           r = x.split('x')
+           qty = r[0]
+           desc = r[1][0:]
            price.append(int(y[1:]))
-           qtDes = qty + "     " + desc
+           spaces = " " * (7-len(qty))
+           qtDes = qty + spaces + desc
            spaces = " " * (40-len(qtDes))
            file1.write(qtDes + spaces + "Tk." + y[1:] + "\n")
         file1.write("--------------------------------------------------\n")     
@@ -843,3 +923,18 @@ if __name__ == "__main__":
     run()
 
     sys.exit(app.exec_())
+Footer
+© 2022 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+You have no unread notifications
