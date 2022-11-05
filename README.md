@@ -79,7 +79,7 @@ We trained both Yolov5m and Yolov5l models on our datasets. The models were init
 Epoch  =  300 (Yolov5m), 100 (Yolov5l)
 Batch Size = 32
 Image Size = 416x416
-Workes = 1
+Workers = 1
 Optimizer = SGD
 ```
 ![alt text](https://github.com/Rusab/Supermall-Checkout-system-yolov5/blob/qr-implementation/images/ArucoLnM.png?raw=true)
