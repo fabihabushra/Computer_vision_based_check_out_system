@@ -6,17 +6,15 @@ retail products. The disadvantage of this prevailing check-out system is that it
 cannot detect a batch of products simultaneously and is hence time-consuming.
 The system also relies on the speed of the cashier’s workflow in handling the
 cash counter. In this regard, our proposed system aims to make batch-billing
-of retail items faster and easier, providing a quality shopping experience for the
-customers. We have implemented a GUI-based check-out application that works
+of retail items faster and easier. We have implemented a GUI-based check-out application that works
 on a YOLO-based object detection architecture to bill the retail products. With
 YOLO architecture at its core, the system scans retail items using a webcam
 placed above for detection. For training our model, we have chosen 25 local retail
 products and 5 weight-dependent products of various categories and used both authentic and synthetic images of them as our dataset. The detection of weight-
 dependent products is a challenging task since conventional packaging uses QR codes which cannot be detected optimally from long distances. We have overcome
 this problem by integrating Hybrid ArUco Markers in their packaging instead of
-QR codes. Overall, our system has achieved a reasonable real-time retail product
-detection accuracy to be implemented on the billing system paving the way for a
-fully automated supermarket experience inside the grocery stores.
+QR codes. Overall, our study implements innovative techniques for real-time implementation of a batch-billing system, highlighting the potential of a
+fully automated billing framework in the grocery stores.
 #### Working Demo of Billing
 <img src="https://github.com/Rusab/Supermall-Checkout-system-yolov5/blob/qr-implementation/images/static.gif?raw=true">
 
