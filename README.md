@@ -1,20 +1,6 @@
 CV Based Batch-Billing System for Supermarket Products using YOLO
 ========
-We propose a computer vision-based billing system for the check-out of retail items
-on the cash counter. Supermarkets employ traditional barcode scanners to detect
-retail products. The disadvantage of this prevailing check-out system is that it
-cannot detect a batch of products simultaneously and is hence time-consuming.
-The system also relies on the speed of the cashier’s workflow in handling the
-cash counter. In this regard, our proposed system aims to make batch-billing
-of retail items faster and easier. We have implemented a GUI-based check-out application that works
-on a YOLO-based object detection architecture to bill the retail products. With
-YOLO architecture at its core, the system scans retail items using a webcam
-placed above for detection. For training our model, we have chosen 25 local retail
-products and 5 weight-dependent products of various categories and used both authentic and synthetic images of them as our dataset. The detection of weight-
-dependent products is a challenging task since conventional packaging uses QR codes which cannot be detected optimally from long distances. We have overcome
-this problem by integrating Hybrid ArUco Markers in their packaging instead of
-QR codes. Overall, our study implements innovative techniques for real-time implementation of a batch-billing system, highlighting the potential of a
-fully automated billing framework in the grocery stores.
+This study introduces a computer vision-based checkout system aimed at enhancing retail transaction efficiency by enabling batch processing of items at the point of sale. Traditional barcode-based checkout methods are limited by their sequential scanning process, leading to increased transaction times and reliance on cashier proficiency. To address these limitations, we propose a real-time detection system that utilizes a YOLO-based framework, integrated within a GUI checkout application, to facilitate the simultaneous billing of multiple products. Our methodology involves training the YOLO model with a dataset comprising both authentic and synthetically generated images of 25 local retail items and 5 weight-variable products across various categories. Since conventional packaging uses QR codes that cannot be detected optimally from long distances, our system incorporates Hybrid ArUco Markers as an innovative solution for improved detection accuracy of weight-dependent products. This research highlights the potential of a fully automated billing framework in retail environments, demonstrating a scalable solution through the integration of deep learning algorithms with deterministic pattern recognition.
 #### Working Demo of Billing
 <img src="https://github.com/Rusab/Supermall-Checkout-system-yolov5/blob/qr-implementation/images/static.gif?raw=true">
 
